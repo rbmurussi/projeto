@@ -1,12 +1,18 @@
 package org.nfe.web.servlet;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 
 import org.apache.commons.io.FileUtils;
 import org.nfe.web.config.NFeConfigEmissor;
-import org.nfe.web.entidade.Customer;
+import org.nfe.web.db.mongo.entidade.Customer;
+import org.nfe.web.db.mongo.repository.CustomerRepository;
 import org.nfe.web.main.MainApplication;
-import org.nfe.web.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -15,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fincatto.nfe310.classes.NFAmbiente;
+import com.fincatto.nfe310.classes.NFModelo;
 import com.fincatto.nfe310.classes.lote.envio.NFLoteEnvio;
 import com.fincatto.nfe310.classes.lote.envio.NFLoteEnvioRetorno;
 import com.fincatto.nfe310.classes.lote.envio.NFLoteEnvioRetornoDados;
 import com.fincatto.nfe310.classes.nota.NFNotaProcessada;
+import com.fincatto.nfe310.classes.statusservico.consulta.NFStatusServicoConsultaRetorno;
 import com.fincatto.nfe310.parsers.NotaParser;
 import com.fincatto.nfe310.utils.NFGeraCadeiaCertificados;
 import com.fincatto.nfe310.webservices.WSFacade;
@@ -80,29 +88,21 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	}
 	
 	@RequestMapping("nfe")
-	public String nfe() {
+	public String nfe() throws Exception {
 		NFLoteEnvio lote = new NFLoteEnvio();
-		try {
-			final NFLoteEnvioRetornoDados retorno = new WSFacade(config).enviaLote(lote);
-			NFLoteEnvioRetorno nFLoteEnvioRetorno = retorno.getRetorno();
-			mongoTemplate.save(nFLoteEnvioRetorno);
-			retorno.getRetorno().getStatus();
-			nFLoteEnvioRetorno.getStatus();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		final NFLoteEnvioRetornoDados retorno = new WSFacade(config).enviaLote(lote);
+		NFLoteEnvioRetorno nFLoteEnvioRetorno = retorno.getRetorno();
+		mongoTemplate.save(nFLoteEnvioRetorno);
+		retorno.getRetorno().getStatus();
+		nFLoteEnvioRetorno.getStatus();
 		return "nota fiscal";
 	}
-	
-	@RequestMapping("cacerts")
-	public void cacerts() {
-	    try {
-	        FileUtils.writeByteArrayToFile(new File("C:\\producao.cacerts"), NFGeraCadeiaCertificados.geraCadeiaCertificados(NFAmbiente.PRODUCAO, "senha"));
-	        FileUtils.writeByteArrayToFile(new File("C:\\homologacao.cacerts"), NFGeraCadeiaCertificados.geraCadeiaCertificados(NFAmbiente.HOMOLOGACAO, "senha"));
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+		
+	@RequestMapping("status")
+	public String status() throws Exception {
+		NFStatusServicoConsultaRetorno retorno;
+		retorno = new WSFacade(config).consultaStatus(config.getCUF(), NFModelo.NFE);
+		return retorno.toString();
 	}
 	
 }

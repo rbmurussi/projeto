@@ -29,7 +29,7 @@ public class MainApplication extends WebSecurityConfigurerAdapter {
 	}
 
 	public @Bean MongoTemplate mongoTemplate() throws Exception {
-		return new MongoTemplate(mongo(), "database");
+		return new MongoTemplate(mongo(), "local");
 	}
 	
 	@Autowired
