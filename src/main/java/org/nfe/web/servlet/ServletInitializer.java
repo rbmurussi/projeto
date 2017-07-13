@@ -1,8 +1,12 @@
-package com.example;
+package org.nfe.web.servlet;
 
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
+import org.nfe.web.config.NFeConfigEmissor;
+import org.nfe.web.entidade.Customer;
+import org.nfe.web.main.MainApplication;
+import org.nfe.web.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -27,14 +31,14 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	private CustomerRepository customerRepository;
 	
 	@Autowired
-	private NFeConfigTeste config;
+	private NFeConfigEmissor config;
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(DemoApplication.class);
+		return application.sources(MainApplication.class);
 	}
 	
 	@RequestMapping("test1")

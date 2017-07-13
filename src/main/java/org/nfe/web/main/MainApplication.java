@@ -1,4 +1,4 @@
-package com.example;
+package org.nfe.web.main;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -18,10 +18,10 @@ import com.mongodb.Mongo;
 @SpringBootApplication
 @EnableWebSecurity
 @ComponentScan
-public class DemoApplication extends WebSecurityConfigurerAdapter {
+public class MainApplication extends WebSecurityConfigurerAdapter {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 	
 	public @Bean Mongo mongo() throws Exception {
@@ -42,7 +42,6 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
 //		http
 //        .authorizeRequests()
 //            .antMatchers("/home", "/").permitAll()
@@ -54,6 +53,5 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
 //            .and()
 //        .logout().logoutUrl("/hello.html")
 //            .permitAll();
-
 	}
 }

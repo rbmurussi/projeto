@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>INSPINIA | Dashboard</title>
+    <title>E-commerce</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -26,29 +26,27 @@
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="graph_flot.html">Flot Charts</a></li>
-                            <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                            <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                            <li><a href="graph_chartjs.html">Chart.js</a></li>
-                            <li><a href="graph_chartist.html">Chartist</a></li>
-                            <li><a href="c3.html">c3 charts</a></li>
-                            <li><a href="graph_peity.html">Peity Charts</a></li>
-                            <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                        </ul>
+                        <a href="#"><i class="glyphicon glyphicon-inbox"></i> <span class="nav-label">Produtos</span><!-- <span class="fa arrow"></span> --></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="ecommerce_products_grid.html">Products grid</a></li>
-                            <li><a href="ecommerce_product_list.html">Products list</a></li>
-                            <li><a href="ecommerce_product.html">Product edit</a></li>
-                            <li><a href="ecommerce_product_detail.html">Product detail</a></li>
-                            <li><a href="ecommerce-cart.html">Cart</a></li>
-                            <li><a href="ecommerce-orders.html">Orders</a></li>
-                            <li><a href="ecommerce_payments.html">Credit Card form</a></li>
-                        </ul>
+                        <a href="#"><i class="glyphicon glyphicon-shopping-cart"></i> <span class="nav-label">Carrinho</span><!-- <span class="fa arrow"></span> --></a>
+                    </li>
+                    <li class="landing_link">
+                        <a href="login.html"><i class="glyphicon glyphicon-log-in"></i> <span class="nav-label">Login</span> 
+                         <!-- <span class="label label-warning pull-right">NEW</span> --> </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-qrcode"></i> <span class="nav-label">Pedidos</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Estatística</span><!-- <span class="fa arrow"></span> --></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-barcode"></i> <span class="nav-label">Entrada</span></a>
+                    </li>
+                    <li class="landing_link">
+                        <a href="logout.html"><i class="glyphicon glyphicon-log-out"></i> <span class="nav-label">Logout</span> 
+                         <!-- <span class="label label-warning pull-right">NEW</span> --> </a>
                     </li>
                 </ul>
 
@@ -59,132 +57,26 @@
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" placeholder="Buscar por..." class="form-control" name="top-search" id="top-search">
-                            </div>
-                        </form>
                     </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-messages">
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a7.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <small class="pull-right">46h ago</small>
-                                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a4.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="pull-right text-navy">5h ago</small>
-                                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/profile.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="pull-right">23h ago</small>
-                                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
-                                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="mailbox.html">
-                                            <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-alerts">
-                                <li>
-                                    <a href="mailbox.html">
-                                        <div>
-                                            <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                            <span class="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="profile.html">
-                                        <div>
-                                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                            <span class="pull-right text-muted small">12 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="grid_options.html">
-                                        <div>
-                                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                            <span class="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="notifications.html">
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                        <li>
-                            <a href="login.html">
-                                <i class="fa fa-sign-out"></i> Log out
-                            </a>
-                        </li>
-                    </ul>
-
                 </nav>
             </div>
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                 </div>
                 <div class="row">
+                	<div class="input-group">
+                        <input type="text" class="form-control"> 
+                        <span class="input-group-btn">
+                        	<button type="button" class="btn btn-primary">Go!</button>
+                        </span>
+                    </div>
                     <div class="col-lg-6">
-	                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	                    <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 							<input type="hidden" name="cmd" value="_s-xclick">
 							<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
 							<input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="1" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
 							<img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
-						</form>
+						</form> -->
                     </div>
                     <div class="col-lg-3">
                         <div class="widget lazur-bg no-padding">
@@ -195,10 +87,17 @@
                 </div>
                 <div class="row">
                 </div>
-
             </div>
-            
+            <div class="footer">
+                <div class="pull-right">
+                    <!-- <strong>Fone:</strong> (61) 3631-6294 -->
+                </div>
+                <div>
+                    <strong>Copyright</strong> Comercial de Alimentos Bosque © 1990-2017
+                </div>
+            </div>
         </div>
+        
     </div>
 	
 	<!-- Mainly scripts -->

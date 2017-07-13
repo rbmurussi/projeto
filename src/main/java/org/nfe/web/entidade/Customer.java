@@ -1,4 +1,4 @@
-package com.example;
+package org.nfe.web.entidade;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

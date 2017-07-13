@@ -1,6 +1,8 @@
-package com.example;
+package org.nfe.web.repository;
 
 import java.util.List;
+
+import org.nfe.web.entidade.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface CustomerRepository extends MongoRepository<Customer, String> {

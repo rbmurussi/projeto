@@ -1,4 +1,4 @@
-package com.example;
+package org.nfe.web.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

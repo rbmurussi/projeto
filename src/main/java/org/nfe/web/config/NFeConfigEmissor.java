@@ -1,4 +1,4 @@
-package com.example;
+package org.nfe.web.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,31 +15,31 @@ import com.fincatto.nfe310.NFeConfig;
 import com.fincatto.nfe310.classes.NFUnidadeFederativa;
 
 @Component
-public class NFeConfigTeste extends NFeConfig {
+public class NFeConfigEmissor extends NFeConfig {
 
     private KeyStore keyStoreCertificado = null;
     private KeyStore keyStoreCadeia = null;
 
     @Override
     public NFUnidadeFederativa getCUF() {
-        return NFUnidadeFederativa.SC;
+    	return NFUnidadeFederativa.valueOf(System.getProperty("unidade_federativa"));
     }
 
     @Override
     public String getCertificadoSenha() {
-        return "senha_certificado";
+        return System.getProperty("senha_certificado");
     }
 
     @Override
     public String getCadeiaCertificadosSenha() {
-        return "senha_cadeia";
+        return System.getProperty("senha_cadeia");
     }
 
     @Override
     public KeyStore getCertificadoKeyStore() throws KeyStoreException {
         if (this.keyStoreCertificado == null) {
             this.keyStoreCertificado = KeyStore.getInstance("PKCS12");
-            try (InputStream certificadoStream = new FileInputStream("/tmp/certificado.pfx")) {
+            try (InputStream certificadoStream = new FileInputStream(System.getProperty("arquivo_certificado_pfx"))) {
                 this.keyStoreCertificado.load(certificadoStream, this.getCertificadoSenha().toCharArray());
             } catch (CertificateException | NoSuchAlgorithmException | IOException e) {
                 this.keyStoreCadeia = null;
@@ -53,7 +53,7 @@ public class NFeConfigTeste extends NFeConfig {
     public KeyStore getCadeiaCertificadosKeyStore() throws KeyStoreException {
         if (this.keyStoreCadeia == null) {
             this.keyStoreCadeia = KeyStore.getInstance("JKS");
-            try (InputStream cadeia = new FileInputStream("/tmp/cadeia.jks")) {
+            try (InputStream cadeia = new FileInputStream(System.getProperty("arquivo_cadeia_jks"))) {
                 this.keyStoreCadeia.load(cadeia, this.getCadeiaCertificadosSenha().toCharArray());
             } catch (CertificateException | NoSuchAlgorithmException | IOException e) {
                 this.keyStoreCadeia = null;
