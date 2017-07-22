@@ -24,6 +24,7 @@ public class ConfigNFeEmissao extends NFeConfig {
 
 	private KeyStore keyStoreCertificado = null;
 	private KeyStore keyStoreCadeia = null;
+	private String cadeiaCertificadosSenha = UUID.randomUUID().toString();
 
 	@Override
 	public NFUnidadeFederativa getCUF() {
@@ -37,7 +38,7 @@ public class ConfigNFeEmissao extends NFeConfig {
 
 	@Override
 	public String getCadeiaCertificadosSenha() {
-		return UUID.randomUUID().toString();
+		return cadeiaCertificadosSenha;
 	}
 
 	@Override
